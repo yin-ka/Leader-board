@@ -1,14 +1,18 @@
-import _ from 'lodash';
-import './style.css';
+const leaderboardData = [
+  { name: 'Name', score: 100 },
+  { name: 'Name', score: 45 },
+  { name: 'Name', score: 27 },
+  { name: 'Name', score: 57 },
+  { name: 'Name', score: 27 },
+  { name: 'Name', score: 10 },
+];
 
-function component() {
-  const element = document.createElement('div');
+const leaderBoardBody = document.querySelector('.table-body');
+const leaderboard = leaderboardData.map((data) => `
+  <tr>
+    <td scope="row">${data.name}:</td>
+    <td>${data.score}</td>
+  </tr>
+`).join('');
 
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
-
-  return element;
-}
-
-document.body.appendChild(component());
+leaderBoardBody.innerHTML = leaderboard;
